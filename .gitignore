@@ -1,0 +1,80 @@
+# -----------------------------
+# Global settings for AnalytIQ
+# -----------------------------
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+*.env
+
+# Logs
+*.log
+logs/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+
+# Node.js (Next.js frontend)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.production.local
+
+# TypeScript cache
+frontend/.turbo/
+frontend/.tsbuildinfo
+
+# Coverage and test reports
+coverage/
+.pytest_cache/
+.cache/
+htmlcov/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# Docker
+*.pid
+*.seed
+docker-compose.override.yml
+
+# AWS / Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+terraform.tfvars
+**/.terraform.lock.hcl
+
+# Build artifacts / Deploy bundles
+dist/
+build/
+*.zip
+*.tar.gz
+
+# Misc
+tmp/
+temp/
