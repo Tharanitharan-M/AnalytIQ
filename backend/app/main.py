@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import query
+from app.api import query, catalog
 
 app = FastAPI(title="AnalytIQ Backend")
+app.include_router(catalog.router)
 
 app.add_middleware(
     CORSMiddleware,
