@@ -1,4 +1,5 @@
 "use client";
+import ChartView from "@/components/ChartView";
 import { useState } from "react";
 
 export default function QueryPage() {
@@ -24,6 +25,9 @@ export default function QueryPage() {
                value={prompt} onChange={e=>setPrompt(e.target.value)} />
         <button className="bg-blue-600 text-white px-3 py-2 rounded" onClick={ask}>Ask</button>
       </div>
+      {result?.rows && (
+        <ChartView data={result.rows} xKey="status" yKey="count" /> 
+      )}
       {result && (
         <pre className="bg-gray-100 mt-6 p-4 rounded">{JSON.stringify(result, null, 2)}</pre>
       )}
