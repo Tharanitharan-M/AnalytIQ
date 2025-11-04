@@ -1,6 +1,12 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
+from sqlalchemy import text
+from app.db.database import SessionLocal
+
+class QueryIn(BaseModel):
+    prompt: str
+
 router = APIRouter(prefix="/query", tags=["query"])
 class QueryIn(BaseModel):
     prompt: str
@@ -16,3 +22,10 @@ def run_query(body: QueryIn):
 def test_query():
     return {"ok": True, "message": "Query endpoint working"}
 
+
+@router.post("/run_sql")
+def run_sql(sql: str):
+    # VERY IMPORTANT: demo only; later add whitelist/read-only validator
+    db = SessionLocal()
+    rows = db.execute(text(sql)).mappings().all()
+    return {"rows": [dict(r) for r in rows]}
