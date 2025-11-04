@@ -11,3 +11,9 @@ def seed():
     ds = Dataset(name="users", source="postgres")
     db.add(ds); db.commit(); db.refresh(ds)
     return {"id": ds.id, "name": ds.name}
+
+@router.get("/list")
+def list_datasets():
+    db = SessionLocal()
+    rows = db.query(Dataset).all()
+    return [{"id": r.id, "name": r.name, "source": r.source} for r in rows]
